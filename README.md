@@ -21,6 +21,7 @@ email-streamlit-app/
 ├── email_service.py # Send emails (SMTP)
 ├── email_reader.py # Read & filter emails (IMAP)
 ├── alert_service.py # Alert system
+├── email_archiver.py # Archive emails
 ├── requirements.txt
 ├── README.md
 ├── .env # Secrets (NOT pushed to GitHub)
@@ -45,6 +46,10 @@ email-streamlit-app/
 - Filter by sender
 - Filter by subject
 - Search using **regular expressions** in the email body
+
+### 🗃️ Email Archiving
+- Archive emails based on criteria
+- Manage archived emails
 
 ### 🚨 Alert System
 - Monitor unread emails

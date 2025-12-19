@@ -1,0 +1,433 @@
+Delivered-To: mohamedyassinkoubi@gmail.com
+Received: by 2002:a05:7010:d198:b0:4ec:1305:55c9 with SMTP id kj24csp1360296mdb;
+        Sun, 14 Dec 2025 09:16:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFW3Ndh0y2eX6Qb3Cy5nfVr5eo5kn9++TmMFendlYTYR/uqkh/Hx1KfQ2OdGzTGSKsNG+ZK
+X-Received: by 2002:a05:6214:3d98:b0:88a:2ac8:9bd with SMTP id 6a1803df08f44-88a2ac80fe7mr58291346d6.62.1765732582057;
+        Sun, 14 Dec 2025 09:16:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765732582; cv=none;
+        d=google.com; s=arc-20240605;
+        b=B+JWf93RKAuce1RDwstBVXr+443q0dv4bkx9aYAckloBirJnLiyrtg1vMm45o1X0zb
+         h4HoCRbTEiK2d+xkjdR6UO4KwdkvbhYGqo9VKhsGCtu/L1bh7yiZfoZZz9bzxVQZOk6h
+         e6Rg4h5Sj/CSoLWcxCin525BybqIRGfsOFX4hIilbOudFeB1OH56iuzxVcVe6xgDcly7
+         TOP0FUMnWysH8w5nMl3JVSWn32IVT7fs4+OaWzjUxJh22GusJVA21iLY3oS+2Kuc1CZr
+         H2ueN9IldgQOtwxhjea//WLiSa7IyOUeHL9DTFqsl9CW7wcD3sY2Bo1niMSq3D2CGzVt
+         Wtyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:feedback-id:subject:message-id:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=YTg99YhER7sVcUq7yb148am275YmGqWqRSHs0aF/sbk=;
+        fh=NzDjnvznRLfQ27STR/zs2RpNHMFg+AaFrH/hxRhu0B0=;
+        b=Wm0X+GLFSV/qOqTwTgAfkjRB64ta25xL7wihxo8/FfbwxiB0gIDvCuatHazx4cWeO2
+         tS7PJNqzvlsirYJcSscirlfa+HbcOc4gJ7Zdylf+L6LGilO3UauwwIxUpGm8O83u0jDG
+         hG6xkCZc4ZfKC2vQlfC5aqvKvEi6C9M/f8AcNSWYoPg9VpMl9vSTE7Xd9BYqJGxyQ5sZ
+         QB8xNFIL32uR2aaYb97UvpfmSol8TdTb89sYX3Di6bDP/LDRRfhuXwOEdcWlOo1S7/K0
+         U23UOc3PjEonPN1pnfyj7jCsk0EuqVl5HhAM+Mh1GncffvB56VmycbxcSrT7gxbvJM2x
+         Lsxw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@statuspage.io header.s=smtpapi header.b=vVWJojSK;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=DPjLHVPs;
+       spf=pass (google.com: domain of noreply@statuspage.io designates 167.89.65.100 as permitted sender) smtp.mailfrom=noreply@statuspage.io;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=statuspage.io
+Return-Path: <noreply@statuspage.io>
+Received: from o5.notifications-sendgrid.statuspage.io (o5.notifications-sendgrid.statuspage.io. [167.89.65.100])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8899dbadaf7si50984716d6.101.2025.12.14.09.16.21
+        for <mohamedyassinkoubi@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 14 Dec 2025 09:16:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@statuspage.io designates 167.89.65.100 as permitted sender) client-ip=167.89.65.100;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@statuspage.io header.s=smtpapi header.b=vVWJojSK;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=DPjLHVPs;
+       spf=pass (google.com: domain of noreply@statuspage.io designates 167.89.65.100 as permitted sender) smtp.mailfrom=noreply@statuspage.io;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=statuspage.io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=statuspage.io;
+	h=content-type:date:from:mime-version:subject:feedback-id:to:cc:
+	content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; bh=YTg99YhER7sVcUq7yb148am275YmGqWqRSHs0aF/sbk=;
+	b=vVWJojSKZuXYJaND6juWUHPhBmAGZCWhfD7lSPGsGENS0fMK5q5bgg+T+K9THqqMdR13
+	RfLG+ZDlD9XSLwPXVQ7ahqO2tlrDG/uBw9okxfN7u4a+mqXqcXQQDoIyV+h2feBZ4JeCLg
+	kqU5BgY2vo4VYjxYQAOojDhEhN8K3LSXA=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:feedback-id:to:cc:
+	content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; bh=YTg99YhER7sVcUq7yb148am275YmGqWqRSHs0aF/sbk=;
+	b=DPjLHVPsK2Rds6qJeile+Z5+6JbNvr0dK1g/VO1H+LR+6bhfUigwsYHdekx/sNSFBzkl
+	wsOk5dnB8p1RJSMLDMBp1pzomKsoYuy29+qFnlUFc628XCajrJ8HcMnFkJrML8D9x9BPLL
+	Lwb5QgfAIMPlkUnWyh20Feebsie0d0EZs=
+Received: by recvd-6c64494f69-s9mzm with SMTP id recvd-6c64494f69-s9mzm-1-693EF0E5-7C
+	2025-12-14 17:16:21.839812006 +0000 UTC m=+2311080.335734401
+Received: from MTgzNDM5Mw (unknown)
+	by geopod-ismtpd-0 (SG) with HTTP
+	id 8ILUM3lUTyWtFSMEy89aTQ
+	Sun, 14 Dec 2025 17:16:21.682 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=0bd285c248e63dee8f0d9fe211b58fc4da26a07425f165f647109b163718
+Date: Sun, 14 Dec 2025 17:16:21 +0000 (UTC)
+From: noreply@statuspage.io
+Mime-Version: 1.0
+Message-ID: <xkxkhptbny98-l0nzt9cryxgw-bp3wbc1h302j@statuspage.io>
+Subject: CS50 Maintenance - submit.cs50.io Database Maintenance - 15 December
+ 2025
+Feedback-ID: 
+ =?us-ascii?Q?ip=2Estatuspage=5Fsendgrid=3Apr=2Estatuspage=3Ala=2Estatuspage=2Fincident=5Fup?=
+ =?us-ascii?Q?date=3Astatuspage=5Fsendgrid?=
+X-Entity-Ref-ID: xkxkhptbny98@statuspage.io
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EwgPQEA+gt=2F9mQv4JaEv+7YWm1zPTMEVIcUvzWm=2FhJbz9MX1Oc2RaKrAPn?=
+ =?us-ascii?Q?Hm4D4gXhaKpnVOIBWwBTVRy=2FntQZHoWKu7q66ND?=
+ =?us-ascii?Q?K6UWm8f91Bwm219TKbXLAcslwVDKfVx1G0IA8OV?=
+ =?us-ascii?Q?HZ8byfECeSz6IEbZcC0sYqppU1m=2FeNK2DW=2FCigx?=
+ =?us-ascii?Q?b10ZlQRCZ5hziBw1NpH0L4lE+Ebz9uDg=2FTwGYy7?=
+ =?us-ascii?Q?Q=3D=3D?=
+To: mohamedyassinkoubi@gmail.com
+X-Entity-ID: u001.Ulicz5deln8tgOMJa3pEGw==
+
+--0bd285c248e63dee8f0d9fe211b58fc4da26a07425f165f647109b163718
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+submit.cs50.io Database Maintenance
+
+Upcoming scheduled maintenance notice
+We will be undergoing scheduled maintenance during this time.
+
+Start time
+Dec 15, 03:00 EST
+
+Components Affected
+check50, submit.cs50.io, submit50
+
+View full scheduled maintenance details https://stspg.io/lbv4mh5kvv5r
+
+You received this email because you are subscribed to CS50's service status=
+ notifications.
+Manage your subscription: https://cs50.statuspage.io/subscriptions/bp3wbc1h=
+302j/edit
+--0bd285c248e63dee8f0d9fe211b58fc4da26a07425f165f647109b163718
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce"><head><title></title><!--[if !mso]><!-- --><meta http-equiv=3D"X-UA-Com=
+patible" content=3D"IE=3Dedge"><!--<![endif]--><meta http-equiv=3D"Content-=
+Type" content=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" conten=
+t=3D"width=3Ddevice-width,initial-scale=3D1"><style type=3D"text/css">#outl=
+ook a { padding:0; }
+          .ReadMsgBody { width:100%; }
+          .ExternalClass { width:100%; }
+          .ExternalClass * { line-height:100%; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-=
+size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-tab=
+le-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-de=
+coration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }</style><!--[if !mso]><!--><sty=
+le type=3D"text/css">@media only screen and (max-width:480px) {
+            @-ms-viewport { width:320px; }
+            @viewport { width:320px; }
+          }</style><!--<![endif]--><!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]--><!--[if lte mso 11]>
+        <style type=3D"text/css">
+          .outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]--><style type=3D"text/css">@media only screen and (min-wi=
+dth:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-85 { width:85% !important; max-width: 85%; }
+      }</style><style type=3D"text/css"></style><style type=3D"text/css">.e=
+mail-logo-image {
+  max-width: 320px;
+  max-height: 100px;
+  width: auto !important;
+  height: auto !important;
+}
+
+@media only screen and (max-width:450px) {
+  .email-logo-image {
+    max-width: 250px;
+  }
+
+  .content-section > table > tbody > tr > td {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .incident-link > table > tbody > tr > td {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .header-spacing > table > tbody > tr > td {
+    padding-top: 45px !important;
+    padding-bottom: 30px !important;
+  }
+}
+
+/* border-radius, border, and border-collapse: collapse do not combine well=
+. */
+/* when we do have embedded (discrete) css, override this to put the border=
+ on the outside div, not on the table cell. */
+div.content-outer > table,
+div.content-outer > table > tbody > tr > td {
+  border: none !important;
+}
+
+div.content-outer {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  border: 1px solid #E0E0E0;
+}
+
+.email-body a, .email-body a:hover, .email-body a:visited {
+  color: #3498db !important;
+}
+
+
+
+      table, td {
+        border-collapse: separate;
+      }
+
+      div.content-outer > table {
+        background: #ffffff;
+        border: 1px solid #E0E0E0;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+      }
+
+      div.outlook-affected-components-column table table {
+        table-layout: fixed;
+      }
+
+      div.incident-link > table {
+        border-collapse: collapse;
+        border-top: 1px solid #E0E0E0;
+        vertical-align: middle;
+      }
+
+      div.incident-link link {
+        padding: 25px 0;
+      }
+
+      .email-body img {
+        max-width: 100%;
+      }
+
+      div.footer-text a {
+        color: #3498db;
+      }  td {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto=
+', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-se=
+rif !important;
+      }</style></head><body style=3D"font-size: 16px; line-height: 24px; fo=
+nt-weight: normal; font-style: normal; background-color: #fcfcfc;"><div sty=
+le=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0=
+px;max-width:0px;opacity:0;overflow:hidden;"> Scheduled - 3 components affe=
+cted - We will be undergoing scheduled maintenance... &zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>=
+<div style=3D"background-color:#fcfcfc;"><!--[if mso | IE]><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"header-sp=
+acing-outlook" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-=
+height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div cl=
+ass=3D"header-spacing" style=3D"Margin:0px auto;max-width:600px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;padding-bottom:30px;padding-left:0px;padding-right:0px;=
+padding-top:30px;text-align:center;vertical-align:top;"><!--[if mso | IE]><=
+table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+"><tr><td class=3D"" style=3D"vertical-align:top;width:600px;" ><![endif]--=
+><div class=3D"mj-column-per-100 outlook-group-fix" style=3D"font-size:13px=
+;text-align:left;direction:ltr;display:inline-block;vertical-align:top;widt=
+h:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;paddi=
+ng:0;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" width=3D"100%"><tr><td align=3D"center" style=3D"font-size:0px;pa=
+dding:0;word-break:break-word;"><div style=3D"font-size:13px;line-height:1;=
+text-align:center;color:#000000;">  <h1 class=3D"text_logo" style=3D"margin=
+: 0; font-weight: normal; padding-left: 20px; padding-right: 20px; font-siz=
+e: 40px; color: #333333;">CS50</h1>  </div></td></tr></table></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr=
+></tbody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"content-o=
+uter-outlook" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div cla=
+ss=3D"content-outer" style=3D"background:#ffffff;background-color:#ffffff;M=
+argin:0px auto;border-radius:4px;max-width:600px;"><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"background:#ffffff;background-color:#ffffff;width:100%;border-radius:4=
+px;"><tbody><tr><td style=3D"border:solid 1px #E0E0E0;direction:ltr;font-si=
+ze:0px;padding:0px;text-align:center;vertical-align:top;"><!--[if mso | IE]=
+><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0"><tr><td class=3D"content-section-outlook" width=3D"600px" ><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"conte=
+nt-section-outlook" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"=
+line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><d=
+iv class=3D"content-section" style=3D"Margin:0px auto;max-width:600px;"><ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:l=
+tr;font-size:0px;padding:0;padding-left:40px;padding-right:40px;text-align:=
+center;vertical-align:top;"><!--[if mso | IE]><table role=3D"presentation" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" width=
+=3D"600px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" style=3D"width:520px;" width=3D"520" ><tr><td style=3D=
+"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><=
+div style=3D"Margin:0px auto;max-width:520px;"><table align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0=
+;padding-top:50px;text-align:center;vertical-align:top;"><!--[if mso | IE]>=
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td class=3D"" style=3D"vertical-align:top;width:520px;" ><![endif]-=
+-><div class=3D"mj-column-per-100 outlook-group-fix" style=3D"font-size:13p=
+x;text-align:left;direction:ltr;display:inline-block;vertical-align:top;wid=
+th:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padd=
+ing:0;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0px;pad=
+ding:0;word-break:break-word;"><div style=3D"font-size:13px;line-height:1;t=
+ext-align:left;color:#000000;"><table cellpadding=3D"0" cellspacing=3D"0" h=
+eight=3D"0" width=3D"32" padding=3D"0" style=3D"Margin:0;border-top:3px sol=
+id #3498DB;"><tr><td></td></tr></table> <table role=3D"presentation" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"20" style=3D"h=
+eight:20px;"></td></tr></table>
+ <h2 style=3D"margin: 0; font-weight: normal; font-size: 24px; line-height:=
+ 32px; color: #333333;">submit.cs50.io Database Maintenance</h2> <table rol=
+e=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td=
+ height=3D"35" style=3D"height:35px;"></td></tr></table>
+ <span style=3D"font-size: 18px;line-height: 1.5;color: #333333;">Upcoming =
+scheduled maintenance notice</span> <table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"12" style=3D"heigh=
+t:12px;"></td></tr></table>
+ <span class=3D"email-body" style=3D"font-size: 14px;line-height: 1.5;color=
+: #333333;">We will be undergoing scheduled maintenance during this time.</=
+span> <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"><tr><td height=3D"35" style=3D"height:35px;"></td></tr></table>
+ <h3 style=3D"margin: 0; font-weight: normal; font-size: 14px; line-height:=
+ 1.5; color: #AAAAAA;">Start time</h3> <table role=3D"presentation" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"12" style=3D"h=
+eight:12px;"></td></tr></table>
+ <span style=3D"font-size: 14px;line-height: 1.5;color: #333333;">Dec 15, 0=
+3:00 EST</span> <table role=3D"presentation" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0"><tr><td height=3D"35" style=3D"height:35px;"></td></tr><=
+/table>
+  <h3 style=3D"margin: 0; font-weight: normal; font-size: 14px; line-height=
+: 1.5; color: #AAAAAA;">Estimated duration</h3> <table role=3D"presentation=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"15" st=
+yle=3D"height:15px;"></td></tr></table>
+ <span style=3D"font-size: 14px;line-height: 1.5;color: #333333;">2 hours</=
+span> <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"><tr><td height=3D"35" style=3D"height:35px;"></td></tr></table>
+   <h3 style=3D"margin: 0; font-weight: normal; font-size: 14px; line-heigh=
+t: 1.5; color: #AAAAAA;">Components affected</h3> <table role=3D"presentati=
+on" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"15" =
+style=3D"height:15px;"></td></tr></table>
+ <table cellspacing=3D"0" cellpadding=3D"0" class=3D"affected-component" st=
+yle=3D"font-family: inherit;margin: 0 20px 0 0; padding: 0 0 15px 0; displa=
+y: inline-block; color: #333333; font-size: 14px; max-width: 100%;  overflo=
+w: hidden; text-overflow: ellipsis; white-space: nowrap;"><tr><td style=3D"=
+vertical-align: middle;">check50</td></tr></table><table cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"affected-component" style=3D"font-family: inheri=
+t;margin: 0 20px 0 0; padding: 0 0 15px 0; display: inline-block; color: #3=
+33333; font-size: 14px; max-width: 100%;  overflow: hidden; text-overflow: =
+ellipsis; white-space: nowrap;"><tr><td style=3D"vertical-align: middle;">s=
+ubmit.cs50.io</td></tr></table><table cellspacing=3D"0" cellpadding=3D"0" c=
+lass=3D"affected-component" style=3D"font-family: inherit;margin: 0 20px 0 =
+0; padding: 0 0 15px 0; display: inline-block; color: #333333; font-size: 1=
+4px; max-width: 100%;  overflow: hidden; text-overflow: ellipsis; white-spa=
+ce: nowrap;"><tr><td style=3D"vertical-align: middle;">submit50</td></tr></=
+table>  <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0"><tr><td height=3D"40" style=3D"height:40px;"></td></tr></table>
+  </div></td></tr></table></td></tr></tbody></table></div><!--[if mso | IE]=
+></td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso =
+| IE]></td></tr></table></td></tr></table><![endif]--></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"i=
+ncident-link-outlook" width=3D"600px" ><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"incident-link-outlook" style=
+=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size=
+:0px;mso-line-height-rule:exactly;"><![endif]--><div class=3D"incident-link=
+" style=3D"Margin:0px auto;max-width:600px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%;"><tbody><tr><td style=3D"border-top:1px solid #E0E0E0;direction:=
+ltr;font-size:0px;padding:0;padding-left:40px;padding-right:40px;text-align=
+:center;vertical-align:top;"><!--[if mso | IE]><table role=3D"presentation"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=
+=3D"vertical-align:top;width:520px;" ><![endif]--><div class=3D"mj-column-p=
+er-100 outlook-group-fix" style=3D"font-size:13px;text-align:left;direction=
+:ltr;display:inline-block;vertical-align:top;width:100%;"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+><tbody><tr><td style=3D"vertical-align:top;padding:0;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><=
+tr><td align=3D"left" style=3D"font-size:0px;padding:0;padding-top:25px;pad=
+ding-bottom:25px;word-break:break-word;"><div style=3D"font-size:13px;line-=
+height:1;text-align:left;color:#000000;"> <a class=3D"link" style=3D"font-s=
+ize: 14px; color: #3498db" href=3D"https://stspg.io/lbv4mh5kvv5r">View full=
+ scheduled maintenance details</a> </div></td></tr></table></td></tr></tbod=
+y></table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr><=
+/tbody></table></div><!--[if mso | IE]></td></tr></table></td></tr></table>=
+<![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></t=
+able><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div sty=
+le=3D"Margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:=
+100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;paddin=
+g-top:20px;text-align:center;vertical-align:top;"><!--[if mso | IE]><table =
+role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td class=3D"" style=3D"vertical-align:top;width:510px;" ><![endif]--><div =
+class=3D"mj-column-per-85 outlook-group-fix" style=3D"font-size:13px;text-a=
+lign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding:0;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%"><tr><td align=3D"center" style=3D"font-size:0px;padding:0=
+;padding-right:20px;padding-left:20px;word-break:break-word;"><div style=3D=
+"font-size:13px;line-height:1;text-align:center;color:#000000;"><div class=
+=3D"footer-text" style=3D"line-height:1.5;font-size: 12px;color:#AAAAAA;"> =
+<p>You received this email because you are subscribed to CS50&#39;s service=
+ status notifications.</p>
+ </div> <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0"><tr><td height=3D"25" style=3D"height:25px;"></td></tr></table>
+  <a style=3D"font-size: 12px; color: #AAAAAA" href=3D"https://cs50.statusp=
+age.io/subscriptions/bp3wbc1h302j/edit">Manage your subscription</a> <table=
+ role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr=
+><td height=3D"25" style=3D"height:25px;"></td></tr></table>
+  <span class=3D"footer_powered_by" style=3D"color: #AAAAAA;font-size: 12px=
+;"><a style=3D"color: #AAAAAA;font-size: 12px;" href=3D"https://www.atlassi=
+an.com/software/statuspage?utm_source=3Demail&utm_medium=3Dpowered-by&utm_c=
+ampaign=3Dcs50.statuspage.io&utm_content=3DSP-notifications">Powered by Atl=
+assian Statuspage</a> </span> <table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td height=3D"60" style=3D"height:60px=
+;"></td></tr></table>
+ </div></td></tr></table></td></tr></tbody></table></div><!--[if mso | IE]>=
+</td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso |=
+ IE]></td></tr></table><![endif]--></div></body></html>
+
+--0bd285c248e63dee8f0d9fe211b58fc4da26a07425f165f647109b163718--

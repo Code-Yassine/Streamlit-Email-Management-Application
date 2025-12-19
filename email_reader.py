@@ -19,6 +19,7 @@ def get_5_unread_emails():
         msg = email.message_from_bytes(msg_data[0][1])
         results.append(
             {
+                "ID": eid,
                 "From": msg.get("From"),
                 "Subject": msg.get("Subject"),
                 "Date": msg.get("Date"),
